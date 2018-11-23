@@ -1,4 +1,4 @@
-package com.github.udanton.demopetclinic;
+package demopetclinic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
