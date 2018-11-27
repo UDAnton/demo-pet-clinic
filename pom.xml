@@ -4,7 +4,7 @@
 
     <groupId>com.github.udanton</groupId>
     <artifactId>demo-pet-clinic</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
 
     <modules>
         <module>pet-clinic-data</module>
@@ -54,5 +54,6 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/UDAnton/demo-pet-clinic.git</developerConnection>
-    </scm>
+      <tag>demo-pet-clinic-0.0.3</tag>
+  </scm>
 </project>
