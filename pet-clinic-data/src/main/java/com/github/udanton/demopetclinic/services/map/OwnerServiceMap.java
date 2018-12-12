@@ -1,11 +1,13 @@
 package com.github.udanton.demopetclinic.services.map;
 
 import com.github.udanton.demopetclinic.model.Owner;
-import com.github.udanton.demopetclinic.services.CrudService;
+import com.github.udanton.demopetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapServices<Owner, Long> implements CrudService<Owner, Long> {
+@Service
+public class OwnerServiceMap extends AbstractMapServices<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -24,7 +26,7 @@ public class OwnerServiceMap extends AbstractMapServices<Owner, Long> implements
 
     @Override
     public Owner save(Owner owner) {
-        return super.save(owner.getId(), owner);
+        return super.save(owner);
     }
 
     @Override
@@ -32,4 +34,8 @@ public class OwnerServiceMap extends AbstractMapServices<Owner, Long> implements
         return super.findById(id);
     }
 
+    @Override
+    public Owner findByLastName(Long id) {
+        return null;
+    }
 }

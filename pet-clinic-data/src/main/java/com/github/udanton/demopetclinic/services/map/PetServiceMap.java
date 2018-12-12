@@ -1,11 +1,13 @@
 package com.github.udanton.demopetclinic.services.map;
 
 import com.github.udanton.demopetclinic.model.Pet;
-import com.github.udanton.demopetclinic.services.CrudService;
+import com.github.udanton.demopetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapServices<Pet, Long> implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMap extends AbstractMapServices<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
@@ -24,7 +26,7 @@ public class PetServiceMap extends AbstractMapServices<Pet, Long> implements Cru
 
     @Override
     public Pet save(Pet pet) {
-        return super.save(pet.getId(), pet);
+        return super.save(pet);
     }
 
     @Override
