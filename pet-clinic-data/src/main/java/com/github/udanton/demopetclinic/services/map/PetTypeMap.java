@@ -2,9 +2,11 @@ package com.github.udanton.demopetclinic.services.map;
 
 import com.github.udanton.demopetclinic.model.PetType;
 import com.github.udanton.demopetclinic.services.PetTypeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetTypeMap extends AbstractMapServices<PetType, Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
