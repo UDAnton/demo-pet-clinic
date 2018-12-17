@@ -1,11 +1,13 @@
 package com.github.udanton.demopetclinic.services.map;
 
 import com.github.udanton.demopetclinic.model.Speciality;
-import com.github.udanton.demopetclinic.services.SpecialitiesService;
+import com.github.udanton.demopetclinic.services.SpecialityService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class SpecialitiesServiceMap extends AbstractMapServices<Speciality, Long> implements SpecialitiesService {
+@Service
+public class SpecialityServiceMap extends AbstractMapServices<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
         return super.findAll();
