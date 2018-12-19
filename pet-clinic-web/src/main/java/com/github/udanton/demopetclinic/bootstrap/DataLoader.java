@@ -1,10 +1,7 @@
 package com.github.udanton.demopetclinic.bootstrap;
 
 import com.github.udanton.demopetclinic.model.*;
-import com.github.udanton.demopetclinic.services.OwnerService;
-import com.github.udanton.demopetclinic.services.PetTypeService;
-import com.github.udanton.demopetclinic.services.SpecialityService;
-import com.github.udanton.demopetclinic.services.VetService;
+import com.github.udanton.demopetclinic.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,13 +15,16 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     @Autowired
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                      SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class DataLoader implements CommandLineRunner {
         owner1.setFirstName("Harry");
         owner1.setLastName("Potter");
         owner1.setCity("Kiev");
-        owner1.setAdress("Khreshchatyk 12-B");
+        owner1.setAddress("Khreshchatyk 12-B");
         owner1.setTelephone("0991111111");
 
         Pet pet1 = new Pet();
@@ -84,7 +84,7 @@ public class DataLoader implements CommandLineRunner {
         owner2.setFirstName("Sirius");
         owner2.setLastName("Black");
         owner2.setCity("Kiev");
-        owner2.setAdress("troyaschina 22-A");
+        owner2.setAddress("troyaschina 22-A");
         owner2.setTelephone("0931111111");
 
 
@@ -97,6 +97,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(pet2);
 
         ownerService.save(owner2);
+
+        Visit visit2 = new Visit();
+        visit2.setPet(pet2);
+        visit2.setDate(LocalDate.now());
+        visit2.setDescription("Sneezy Kitty");
+
+        visitService.save(visit2);
 
         System.out.println("Loaded Owners...");
 
