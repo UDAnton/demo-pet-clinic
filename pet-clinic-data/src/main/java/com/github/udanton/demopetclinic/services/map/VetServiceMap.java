@@ -5,11 +5,13 @@ import com.github.udanton.demopetclinic.model.Vet;
 import com.github.udanton.demopetclinic.services.SpecialityService;
 import com.github.udanton.demopetclinic.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapServices<Vet, Long> implements VetService {
 
     private final SpecialityService specialityService;
